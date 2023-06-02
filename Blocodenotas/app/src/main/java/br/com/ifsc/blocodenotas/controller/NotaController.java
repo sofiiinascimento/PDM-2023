@@ -2,6 +2,8 @@ package br.com.ifsc.blocodenotas.controller;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+
 import br.com.ifsc.blocodenotas.modelo.Nota;
 import br.com.ifsc.blocodenotas.modelo.NotaDao;
 
@@ -18,5 +20,17 @@ public class NotaController {
             return notaDao.inserirNota(n);
 
         }
+
+        public ArrayList<Nota> listaNotas(){
+            return notaDao.getListaNotas();
+        }
+
+        public ArrayList<String> listaTitulosNotas(){
+            ArrayList<String> result = new ArrayList<String>();
+            for (Nota nota: this.listaNotas()){
+                result.add(nota.getTitulo());
+            }
+            return result;
+    }
 }
 

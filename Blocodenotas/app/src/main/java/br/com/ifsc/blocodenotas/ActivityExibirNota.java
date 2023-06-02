@@ -7,6 +7,7 @@ import br.com.ifsc.blocodenotas.modelo.Nota;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ActivityExibirNota extends AppCompatActivity {
     NotaController notaController;
@@ -22,7 +23,7 @@ public class ActivityExibirNota extends AppCompatActivity {
     }
 
     public void salvarNota(View v){
-        notaController.cadastrarNovaNota(new Nota(edTitulo.getText().toString(), edNota.getText().toString()));
-
+        Nota n = notaController.cadastrarNovaNota(new Nota(edTitulo.getText().toString(), edNota.getText().toString()));
+        Toast.makeText(this, Integer.toString(n.getId()),Toast.LENGTH_SHORT).show();
     }
 }
